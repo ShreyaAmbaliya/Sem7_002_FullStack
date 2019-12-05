@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Countries and Capitals</h4>
+        <table class="table table-hover" cellspacing="3" border="2" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Capital</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let country of countries">
+                    <td>{{country._id}}</td>
+                    <td>{{country.name}}</td>
+                    <td>{{country.capital}}</td>
+                    <td><button class="btn btn-danger" (click)="doDelete(country)">Delete</button>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-primary" (click)="doUpdate(country)">update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>

@@ -1,0 +1,26 @@
+<table border="1" cellpadding="7">
+    <thead>
+        <tr>
+                <th colspan="2"><button value="sort" name="sort" (click)="sortEmployees()">Sort By Salary(Desc)</button></th>
+                <th colspan="2"><button value="refresh" name="refresh" (click)="readEmployees()">Refresh</button></th>
+                <th>
+                    Search:<input type="text" placeholder="search employees" ng-model="searchText">
+                </th>
+        </tr>
+        <tr>
+            <th>EmployeeName</th>
+            <th>Salary</th>
+            <th>JoinDate</th>
+            <th colspan="2">Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+           <td>{{employee.name}}</td> 
+           <td>{{employee.salary}}</td> 
+           <td>{{employee.joindate}}</td> 
+           <td><button value="delete" name="delete" (click)="doDelete(employee)">Delete</button></td>
+           <td><button value="update" name="update" (click)="doUpdate(employee)">Update</button></td>
+        </tr>
+    </tbody>
+</table>
