@@ -1,0 +1,107 @@
+html
+	head
+		if(!data)
+			title Insert Data
+		else
+			title Update Data
+	body
+		if(!data)
+			form(action="/studentinfo/insertData/" method="post")
+				table
+					tr
+						td
+							input(type="hidden" name="txtId")
+					tr
+						td
+							lable Student Name:
+						td
+							input(type="text" name="txtName" placeholder="Enter Student Name")
+					tr
+						td
+							lable Student Contact No:
+						td
+							input(type="text" name="txtContact" placeholder="Enter Mobile")
+					tr
+						td
+							lable Enter Email:
+						td
+							input(type="email" name="txtEmail" placeholder="Enter Email")
+					tr
+						td
+							lable Select City:
+						td
+							select(name="txtCity")
+								option(value="Surat") Surat
+								option(value="Vadodara") Vadodara
+								option(value="Bhavnagar") Bhavnagar
+								option(value="Rajkot") Rajkot
+					tr
+						td
+							lable Select Gender:
+						td
+							input(type="radio" name="txtGen" value="Male" checked)
+							| Male
+							input(type="radio" name="txtGen" value="Female")
+							| Female
+					tr
+						td(rowspan="2")
+							input(type="submit" value="Submit" name="Submit")
+		else
+			form(action="/studentinfo/updateData/" method="post")
+				table
+					tr
+						td
+							input(type="hidden" name="txtId" value=data._id)
+					tr
+						td
+							lable Student Name:
+						td
+							input(type="text" name="txtName" value=data.name)
+					tr
+						td
+							lable Student Contact No:
+						td
+							input(type="text" name="txtContact" value=data.contactno)
+					tr
+						td
+							lable Enter Email:
+						td
+							input(type="email" name="txtEmail" value=data.emailid)
+					tr
+						td
+							lable Select City:
+						td
+							select(name="txtCity")
+								if(data.city == "Surat")
+									option(value="Surat" selected) Surat
+								else
+									option(value="Surat") Surat
+								if(data.city == "Vadodara")
+									option(value="Vadodara" selected) Vadodara
+								else
+									option(value="Vadodara") Vadodara
+								if(data.city == "Bhavnagar")
+									option(value="Bhavnagar" selected) Bhavnagar
+								else
+									option(value="Bhavnagar") Bhavnagar
+								if(data.city == "Rajkot")									
+									option(value="Rajkot" selected) Rajkot
+								else
+									option(value="Rajkot") Rajkot
+					tr
+						td
+							lable Select Gender:
+						td
+							if(data.gender == "Male")
+								input(type="radio" name="txtGen" value="Male" checked)
+								| Male
+								input(type="radio" name="txtGen" value="Female")
+								| Female
+							else
+								input(type="radio" name="txtGen" value="Male")
+								| Male
+								input(type="radio" name="txtGen" value="Female" checked)
+								| Female
+					tr
+						td(rowspan="2")
+							input(type="submit" value="Update" name="Update")

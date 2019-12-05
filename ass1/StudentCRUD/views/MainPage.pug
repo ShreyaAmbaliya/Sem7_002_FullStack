@@ -1,0 +1,29 @@
+html
+	head
+		title Show data
+	body
+		table(border="1" cellpadding="2" cellspacing="3")
+			tr
+				td(colspan="8" align="center") 
+					a(href="/studentinfo/insert/") Add new record
+			tr
+				th Id
+				th Name
+				th Contact No
+				th Email Id
+				th Gender
+				th City
+				th Edit?
+				th Delete?
+			each stud in data
+				tr
+					td #{stud._id}
+					td #{stud.name}
+					td #{stud.contactno}
+					td #{stud.emailid}
+					td #{stud.gender}
+					td #{stud.city}
+					td
+						a(href="/studentinfo/edit/" + stud._id) Edit
+					td
+						a(href="/studentinfo/delete/" + stud.id) Delete
